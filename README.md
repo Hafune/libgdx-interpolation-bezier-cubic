@@ -66,7 +66,7 @@ class BezierCubic(x0: Float, y0: Float, x1: Float, y1: Float) : Interpolation() 
 }
 ```
 
-![image](https://user-images.githubusercontent.com/58075695/162628784-2b31e91e-551c-4bde-bbae-e95e8b22ad5d.png)
+![image](https://user-images.githubusercontent.com/58075695/162629646-caf94e28-9e02-420d-b2e6-532d07398727.png)
 
 If you have never used liftoff, here is a screenshot of the program launch
 ![image](https://user-images.githubusercontent.com/58075695/162629212-2ff46cf3-477d-4b11-a12c-da2209ca627c.png)
