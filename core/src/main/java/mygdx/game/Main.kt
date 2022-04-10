@@ -11,6 +11,7 @@ import com.kotcrab.vis.ui.VisUI.SkinScale
 class Main : ApplicationAdapter() {
     private lateinit var stage: Stage
     private lateinit var sceneHandler: SceneHandler
+    private lateinit var settings: Settings
 
     override fun create() {
         VisUI.setSkipGdxVersionCheck(true)
@@ -19,7 +20,23 @@ class Main : ApplicationAdapter() {
         stage = Stage(ScreenViewport())
         Gdx.input.inputProcessor = stage
 
-        sceneHandler = SceneHandler()
+        settings = Settings()
+
+        if (settings[Settings.Keys.appWidth] == null || settings[Settings.Keys.appHeight] == null) {
+            settings[Settings.Keys.appWidth] = Gdx.graphics.width.toString()
+            settings[Settings.Keys.appHeight] = Gdx.graphics.height.toString()
+            settings.exportSetting()
+        }
+
+        try {
+            Gdx.graphics.setWindowedMode(
+                settings[Settings.Keys.appWidth]!!.toInt(),
+                settings[Settings.Keys.appHeight]!!.toInt()
+            )
+        } catch (_: Exception) {
+        }
+
+        sceneHandler = SceneHandler(settings)
         stage.addActor(sceneHandler)
     }
 
@@ -39,5 +56,12 @@ class Main : ApplicationAdapter() {
     override fun dispose() {
         VisUI.dispose()
         stage.dispose()
+        if (settings[Settings.Keys.appWidth] != Gdx.graphics.width.toString() ||
+            settings[Settings.Keys.appHeight] != Gdx.graphics.height.toString()
+        ) {
+            settings[Settings.Keys.appWidth] = Gdx.graphics.width.toString()
+            settings[Settings.Keys.appHeight] = Gdx.graphics.height.toString()
+            settings.exportSetting()
+        }
     }
 }

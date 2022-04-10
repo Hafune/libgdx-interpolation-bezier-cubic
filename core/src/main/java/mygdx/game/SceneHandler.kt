@@ -19,31 +19,37 @@ import java.io.BufferedWriter
 import java.io.FileWriter
 
 
-class SceneHandler : Table() {
+class SceneHandler(settings: Settings) : Table() {
 
     private var group = Group().also {
-        it.width = 400f
-        it.height = 400f
+        it.width = 200f
+        it.height = 200f
     }
     private var knobA = buildKnob(0f, 0f)
     private var knobB = buildKnob(group.width, group.height)
 
     private var shapeRenderer = ShapeRenderer()
 
-    private val data = BezierCubicData()
+    private var data = BezierCubicData()
     private val interpolation = BezierCubic(data.x0, data.y0, data.x1, data.y1)
-    private val settings = Settings()
 
     private val path = settings[Settings.Keys.path]
     private val exportPath = VisTextField(path ?: "${Gdx.files.localStoragePath}data.json")
+    private val importButton = VisTextButton("import")
 
     private val fileChooserOpen: MyFileChooserOpen = MyFileChooserOpen {
-        exportPath.text = it.path()
+        try {
+            data = MyObjectMapper.readValue(it.readString(), BezierCubicData::class.java)
+            exportPath.text = it.path()
+        } catch (e: Exception) {
+            importButton.color = Color.RED
+            importButton.addAction(Actions.color(Color.WHITE, 1f))
+        }
     }
 
     init {
         top().left()
-        shapeRenderer.setColor(1f, 1f, 0f, 1f);
+        shapeRenderer.color = Color.GREEN;
 
         setFillParent(true)
 
@@ -61,7 +67,6 @@ class SceneHandler : Table() {
             }
         }
 
-        val importButton = VisTextButton("import")
         importButton.onClick {
             stage.addActor(fileChooserOpen)
         }

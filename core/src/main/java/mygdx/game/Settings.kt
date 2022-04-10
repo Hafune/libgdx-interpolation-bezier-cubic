@@ -10,7 +10,9 @@ import mygdx.game.lib.MyObjectMapper
 class Settings {
 
     enum class Keys {
-        path
+        path,
+        appWidth,
+        appHeight
     }
 
     private val fileName = "settings.properties"
