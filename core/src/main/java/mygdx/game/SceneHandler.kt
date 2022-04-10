@@ -149,7 +149,7 @@ class SceneHandler(settings: Settings) : Table() {
     }
 
     private fun buildKnob(x: Float, y: Float): VisImage {
-        val fileName = "radio_button_active.png"
+        val fileName = "knob.png"
         val image = VisImage(TextureStorage[fileName])
         image.setOrigin(Align.center)
         image.x = -image.width / 2 + x

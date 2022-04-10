@@ -6,7 +6,6 @@ import com.fasterxml.jackson.core.type.TypeReference
 import mygdx.game.lib.FileStorage
 import mygdx.game.lib.MyObjectMapper
 
-
 class Settings {
 
     enum class Keys {
