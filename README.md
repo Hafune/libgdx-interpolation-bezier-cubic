@@ -4,28 +4,7 @@ A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://git
 
 Project template included simple launchers and an `ApplicationAdapter` extension with GUI created using the [VisUI](https://github.com/kotcrab/vis-ui) library.
 
-## Gradle
-
-This project uses [Gradle](http://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
-
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
-- `test`: runs unit tests (if any).
-
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
+Important - I plan to gradually develop this project and therefore I do not guarantee backward compatibility of new versions at all. 
 
 ![image](https://user-images.githubusercontent.com/58075695/162771538-b1779166-6fc7-42c1-ab9f-2422b624fa53.png)
 ![image](https://user-images.githubusercontent.com/58075695/162771751-fb6c7b33-ae8f-4e30-9818-f63187568ed2.png)
