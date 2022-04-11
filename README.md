@@ -27,8 +27,8 @@ Useful Gradle tasks and flags:
 Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
 For example, `core:clean` removes `build` folder only from the `core` project.
 
-![image](https://user-images.githubusercontent.com/58075695/162628290-01bffedb-914c-4116-9009-65c1ea2133ab.png)
-![image](https://user-images.githubusercontent.com/58075695/162628318-1049c4b4-6b37-4217-ac6e-f8bf61506ee8.png)
+![image](https://user-images.githubusercontent.com/58075695/162771538-b1779166-6fc7-42c1-ab9f-2422b624fa53.png)
+![image](https://user-images.githubusercontent.com/58075695/162771751-fb6c7b33-ae8f-4e30-9818-f63187568ed2.png)
 ![image](https://user-images.githubusercontent.com/58075695/162628434-1c0a1780-0715-4f65-9dd5-31bdec6afb64.png)
 
 I'm writing tools for my game, at some point I realized that I was wasting a lot of time trying to pick up an interpolation.

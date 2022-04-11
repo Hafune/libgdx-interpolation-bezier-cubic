@@ -35,8 +35,13 @@ class Settings {
     }
 
     private fun loadSettings(file: FileHandle) {
-        val typeRef = object : TypeReference<HashMap<String, String>>() {}
-        settings = MyObjectMapper.readValue(file.file(), typeRef)
+        try {
+            val typeRef = object : TypeReference<HashMap<String, String>>() {}
+            settings = MyObjectMapper.readValue(file.file(), typeRef)
+        } catch (e: Exception) {
+            exportSetting()
+        }
+
     }
 
     fun exportSetting() = Gdx.files.local(fileName).writeString(MyObjectMapper.writeValueAsString(settings), false)

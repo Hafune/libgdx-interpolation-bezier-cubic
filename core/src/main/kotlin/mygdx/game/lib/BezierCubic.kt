@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector2
 
 class BezierCubic(x0: Float, y0: Float, x1: Float, y1: Float) : Interpolation() {
 
-    private val v = Vector2()
+    val v = Vector2()
     private val vTemp = Vector2()
     private val p0 = Vector2()
     private val p1 = Vector2(x0, y0)
@@ -14,7 +14,6 @@ class BezierCubic(x0: Float, y0: Float, x1: Float, y1: Float) : Interpolation() 
     private val p3 = Vector2(1f, 1f)
 
     override fun apply(a: Float): Float {
-
         return Bezier.cubic(v, a, p0, p1, p2, p3, vTemp).y
     }
 

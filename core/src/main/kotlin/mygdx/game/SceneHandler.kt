@@ -135,10 +135,12 @@ class SceneHandler(settings: Settings) : Table() {
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         for (t in 0..group.width.toInt()) {
-            val x0 = t.toFloat()
-            val y0 = interpolation.apply(x0 / group.width) * group.height
-            val x1 = x0 + 1f
-            val y1 = interpolation.apply(x1 / group.width) * group.height
+            interpolation.apply(t / group.height)
+            val x0 = interpolation.v.x * group.width
+            val y0 = interpolation.v.y * group.height
+            interpolation.apply((t + 1) / group.height)
+            val x1 = interpolation.v.x * group.width
+            val y1 = interpolation.v.y * group.height
 
             val v0 = group.localToStageCoordinates(Vector2(x0, y0))
             val v1 = group.localToStageCoordinates(Vector2(x1, y1))
